@@ -64,6 +64,10 @@ export interface Options {
    * [$RefParser](https://github.com/BigstickCarpet/json-schema-ref-parser) Options, used when resolving `$ref`s
    */
   $refOptions: $RefOptions
+  /**
+   * Add module export to the exported typings.
+   */
+  exportGenerated: boolean
 }
 
 export const DEFAULT_OPTIONS: Options = {
@@ -90,7 +94,8 @@ export const DEFAULT_OPTIONS: Options = {
     useTabs: false
   },
   unreachableDefinitions: false,
-  unknownAny: true
+  unknownAny: true,
+  exportGenerated: true
 }
 
 export function compileFromFile(filename: string, options: Partial<Options> = DEFAULT_OPTIONS): Promise<string> {
